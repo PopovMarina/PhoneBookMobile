@@ -22,6 +22,10 @@ repositories {
         testAnnotationProcessor  group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
     }
 
+test {
+    jvmArgs(['--add-opens', 'java.base/java.lang=ALL-UNNAMED'])
+    useTestNG()
+}
 
 test {
     useTestNG()

@@ -8,6 +8,7 @@ public class SplashScreen extends BaseScreen{
 
 
     public SplashScreen(AppiumDriver<MobileElement> driver) {
+
         super(driver);
     }
 
@@ -17,6 +18,10 @@ public class SplashScreen extends BaseScreen{
     public String getCurrentVersion() {
         versionText.click();
         return versionText.getText();
+    }
+
+    public AuthenticationScreen switchToAuthScreen(){
+        return new AuthenticationScreen(driver);
     }
 
 }
