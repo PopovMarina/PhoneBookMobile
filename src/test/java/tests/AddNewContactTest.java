@@ -6,7 +6,9 @@ import helpers.EmailGenerator;
 import helpers.NameAndLastNameGenerator;
 import helpers.PhoneNumberGenerator;
 import models.Contact;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import screens.AddNewContactScreen;
 import screens.ContactListScreen;
 import screens.SplashScreen;
 
@@ -20,14 +22,15 @@ public class AddNewContactTest extends AppiumConfig {
 
         Contact contact = new Contact(NameAndLastNameGenerator.generateName(),
                 NameAndLastNameGenerator.generateLastName(),
-                PhoneNumberGenerator.generatePhoneNumber(),
                 EmailGenerator.generateEmail(5,5,3),
+                PhoneNumberGenerator.generatePhoneNumber(),
                 AddressGenerator.generateAddress(),
                 "Descr");
 
-//        new ContactListScreen(driver).openNewContactForm().fillForm(contact)
-//                .createContact()
-//                .isContactAdded();
+         new ContactListScreen(driver).openNewContactForm()
+                .fillForm(contact);
+
+        Assert.assertTrue(AddNewContactScreen.isContactAdded());
 
     }
 

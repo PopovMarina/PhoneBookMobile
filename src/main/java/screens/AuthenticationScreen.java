@@ -1,5 +1,6 @@
 package screens;
 
+import config.AppiumConfig;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
@@ -23,8 +24,15 @@ public class AuthenticationScreen extends BaseScreen{
     MobileElement registrationButton;
     @FindBy(id = "com.sheygam.contactapp:id/loginBtn")
     MobileElement loginButton;
-    @FindBy(id="android:id/message")
-    MobileElement errorText;
+
+
+    //    By.xpath("//*[@resource-id='com.sheygam.contactapp:id/action_bar']" +
+    //            "/android.widget.TextView")
+    // second by class
+    // By.xpath("//*[@resource-id='com.sheygam.contactapp:id/action_bar']/..");
+    // one level up
+    // By.xpath("//*[@resource-id='com.sheygam.contactapp:id/action_bar']/../..");
+    // 2 levels up
 
     public AuthenticationScreen fillEmailField(String email) {
         waitForAnElement(inputEmailField);
@@ -35,7 +43,7 @@ public class AuthenticationScreen extends BaseScreen{
         inputPasswordField.sendKeys(password);
         return this;
     }
-
+    @SuppressWarnings("unchecked")
     public <T extends BaseScreen> T clickByLoginButton() {
         //метод, который может возвращать 2 сущности, которые наследуются от обшего предка BaseScreen
         //Т - это обобщенный класс(какая-то страница, которая наследуется от BaseScreen
@@ -53,9 +61,20 @@ public class AuthenticationScreen extends BaseScreen{
     public boolean isItAuthenticationScreen(){
         return titleText.isDisplayed();
     }
-
-    public <T extends BaseScreen> T clickByRegistrationButton() {
+@SuppressWarnings("unchecked")
+    public <T extends BaseScreen> T clickByRegistrationButton() throws InterruptedException {
         registrationButton.click();
+        Thread.sleep(3000);
+
+//разница между findElement и findElements:
+//        try{
+//            WebElement element = driver.findElement(By.id("android:id/alertTitle"));
+//            return  (T)new AuthenticationScreen(driver);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//            return (T) new ContactListScreen(driver);
+//        }
+
         List<MobileElement> list = driver.findElements(By.id("android:id/alertTitle"));
         if(list.size() > 0) {
             driver.findElement(By.id("android:id/button1")).click();

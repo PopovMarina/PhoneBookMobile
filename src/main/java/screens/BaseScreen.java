@@ -25,12 +25,15 @@ public class BaseScreen {
 
     public boolean isElementPresent(MobileElement element, String text) {
        try {
-           new WebDriverWait(driver, 5).
+           new WebDriverWait(driver, 8).
                    until(ExpectedConditions.textToBePresentInElement(element, text));
            return true;
        }
-       catch (TimeoutException e) {return false;}
+       catch (TimeoutException e) {
+           return false;
+       }
     }
+
 
 
 }

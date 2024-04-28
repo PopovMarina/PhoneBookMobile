@@ -30,14 +30,17 @@ return new AuthenticationScreen(driver);
 }
 
 public boolean isContactListPresent() {
-   return isElementPresent(titleText, "Contact list");
+
+    return isElementPresent(titleText, "Contact list");
 }
 
-//public AddNewContactScreen openNewContactForm() {
-//    waitForAnElement(addButton);
-//    addButton.click();
-//    return new AddNewContactScreen(driver);
-//
-//}
+public AddNewContactScreen openNewContactForm() {
+    waitForAnElement(addButton);
+    addButton.click();
+    return new AddNewContactScreen(driver);
+
+}
+
+
 
 }
