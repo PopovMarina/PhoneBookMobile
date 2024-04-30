@@ -27,31 +27,34 @@ MobileElement inputDescField;
 @FindBy(id = "com.sheygam.contactapp:id/createBtn")
  MobileElement createButton;
 
-@FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/action_bar']/android.widget.TextView")
-static MobileElement titleText;
 
 
-public void fillForm(Contact contact) {
+public AddNewContactScreen fillForm(Contact contact) {
+waitForAnElement(createButton);
 inputNameField.sendKeys(contact.getName());
+driver.hideKeyboard();//скрывает клавиатуру
 inputLastnameField.sendKeys(contact.getLastName());
+driver.hideKeyboard();
 inputEmailField.sendKeys(contact.getEmail());
+driver.hideKeyboard();
 inputPhoneField.sendKeys(contact.getPhone());
+driver.hideKeyboard();
 inputAddressField.sendKeys(contact.getAddress());
+driver.hideKeyboard();
 inputDescField.sendKeys(contact.getDescription());
-createButton.click();
+driver.hideKeyboard();
+//createButton.click();
+return this;
 }
 
-//public void createContact() {
-//createButton.click();
+public ContactListScreen createContact() {
+createButton.click();
+return new ContactListScreen(driver);
+}
+
+//public static boolean isContactAdded() {
+//    return titleText.isDisplayed();
 //}
 
-public static boolean isContactAdded() {
-    return titleText.isDisplayed();
-}
-
-
-//найти все поля с помощью ФайндБай и создать метод-  fillForm(contact)
-//                .createContact()
-//                .isContactAdded();
 
 }

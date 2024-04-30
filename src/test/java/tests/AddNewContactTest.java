@@ -27,11 +27,16 @@ public class AddNewContactTest extends AppiumConfig {
                 AddressGenerator.generateAddress(),
                 "Descr");
 
-         new ContactListScreen(driver).openNewContactForm()
-                .fillForm(contact);
+//         new ContactListScreen(driver).openNewContactForm()
+//                .fillForm(contact);
+//
+//        Assert.assertTrue(AddNewContactScreen.isContactAdded());
 
-        Assert.assertTrue(AddNewContactScreen.isContactAdded());
-
+        Assert.assertTrue(new ContactListScreen(driver)
+                .openNewContactForm()
+                .fillForm(contact)
+                .createContact()
+                .isContactAdded(contact));
     }
 
 }

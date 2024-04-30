@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33144714-e7f3-404b-9f76-8ea6846a6a64" name="Changes" comment="Lesson_19">
+    <list default="true" id="33144714-e7f3-404b-9f76-8ea6846a6a64" name="Changes" comment="Lesson_19 - Homework">
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/TestData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/LoginDataProviderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/RemoveContactTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/screens/AddNewContactScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screens/AddNewContactScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/AuthenticationScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screens/AuthenticationScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/BaseScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screens/BaseScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/screens/ContactListScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screens/ContactListScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/AddNewContactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/AddNewContactTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,22 +44,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.LoginTest.loginNegative.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.LoginTest.loginPositive.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RegistrationTests.registrationNewUserTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.RegistrationTests.registrationWrongEmailNegative.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SplashScreenTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SplashScreenTest.splashScreenCheckVersion.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/marina/Documents/Java/PhoneBookMobile/src/main/java/helpers&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.AddNewContactTest.addNewContact.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.LoginDataProviderTest.loginTestNegative.executor": "Run",
+    "Gradle.LoginTest.loginNegative.executor": "Run",
+    "Gradle.LoginTest.loginPositive.executor": "Run",
+    "Gradle.RegistrationTests.registrationNewUserTest.executor": "Run",
+    "Gradle.RegistrationTests.registrationWrongEmailNegative.executor": "Run",
+    "Gradle.RemoveContactTest.removeAllContacts.executor": "Run",
+    "Gradle.RemoveContactTest.removeContact.executor": "Run",
+    "Gradle.SplashScreenTest.executor": "Run",
+    "Gradle.SplashScreenTest.splashScreenCheckVersion.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/marina/Documents/Java/PhoneBookMobile/src/main/java/helpers"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/helpers" />
@@ -68,8 +72,8 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.RegistrationTests.registrationWrongEmailNegative">
-    <configuration name="LoginTest.loginNegative" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.RemoveContactTest.removeContact">
+    <configuration name="AddNewContactTest.addNewContact" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -82,7 +86,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.LoginTest.loginNegative&quot;" />
+            <option value="&quot;tests.AddNewContactTest.addNewContact&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -93,7 +97,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="LoginTest.loginPositive" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LoginDataProviderTest.loginTestNegative" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -106,31 +110,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.LoginTest.loginPositive&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="RegistrationTests.registrationNewUserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.RegistrationTests.registrationNewUserTest&quot;" />
+            <option value="&quot;tests.LoginDataProviderTest.loginTestNegative&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -165,7 +145,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="SplashScreenTest.splashScreenCheckVersion" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RemoveContactTest.removeAllContacts" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -178,7 +158,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.SplashScreenTest.splashScreenCheckVersion&quot;" />
+            <option value="&quot;tests.RemoveContactTest.removeAllContacts&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="RemoveContactTest.removeContact" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.RemoveContactTest.removeContact&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -191,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.RemoveContactTest.removeContact" />
+        <item itemvalue="Gradle.AddNewContactTest.addNewContact" />
+        <item itemvalue="Gradle.RemoveContactTest.removeAllContacts" />
+        <item itemvalue="Gradle.LoginDataProviderTest.loginTestNegative" />
         <item itemvalue="Gradle.RegistrationTests.registrationWrongEmailNegative" />
-        <item itemvalue="Gradle.LoginTest.loginNegative" />
-        <item itemvalue="Gradle.RegistrationTests.registrationNewUserTest" />
-        <item itemvalue="Gradle.SplashScreenTest.splashScreenCheckVersion" />
-        <item itemvalue="Gradle.LoginTest.loginPositive" />
       </list>
     </recent_temporary>
   </component>
@@ -231,13 +235,22 @@
       <option name="project" value="LOCAL" />
       <updated>1713558315013</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Lesson_19 - Homework">
+      <option name="closed" value="true" />
+      <created>1714344167969</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714344167969</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Lesson_18" />
     <MESSAGE value="Lesson_19" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lesson_19" />
+    <MESSAGE value="Lesson_19 - Homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lesson_19 - Homework" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -256,6 +269,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/screens/AuthenticationScreen.java</url>
           <line>18</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/AddNewContactTest.java</url>
+          <line>16</line>
+          <properties class="tests.AddNewContactTest" method="addNewContact">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
