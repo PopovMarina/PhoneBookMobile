@@ -47,6 +47,7 @@ public class RemoveContactTest extends AppiumConfig {
         Assert.assertTrue(contactListScreen.removeAllContacts().isNoContactsMessage());
 
     }
+
 }
 
 //дз - реализовать сдвиг влево - редактирование

@@ -39,6 +39,8 @@ public class ContactListScreen extends BaseScreen{
     MobileElement yesButton;
     @FindBy(xpath = "//*[@resource-id='com.sheygam.contactapp:id/emptyTxt']")
     MobileElement emptyListMessage;
+    @FindBy(id = "com.sheygam.contactapp:id/updateBtn")
+    MobileElement updateButton;
 
 
     String phoneNumber;
@@ -93,9 +95,30 @@ phoneNumber = rowPhone.get(0).getText();
         yesButton.click();
     }
     return this;
+}
 
+public EditContactScreen editContact() {
+    waitForAnElement(addButton);
+    MobileElement contact = contacts.get(0);
+    phoneNumber = rowPhone.get(0).getText();
+
+    Rectangle rectangle = contact.getRect();
+    int xStart = rectangle.getX() + rectangle.getWidth()*7/8;
+    int y = rectangle.getY() + rectangle.getHeight()/2;
+    int xEnd = xStart - rectangle.getWidth()*6/8;
+
+    new TouchAction<>(driver).longPress(PointOption.point(xStart,y))
+            .moveTo(PointOption.point(xEnd,y))
+            .release()
+            .perform();
+
+    return new EditContactScreen(driver);
 
 }
+    public boolean isContactUpdated() {
+        return !rowPhone.contains(phoneNumber);
+    }
+
 
     public boolean isContactRemoved() {
     return !rowPhone.contains(phoneNumber);
