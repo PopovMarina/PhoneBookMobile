@@ -32,30 +32,43 @@ public class EditContactScreen extends BaseScreen{
     List<MobileElement> rowPhone;
 
 
-    public EditContactScreen fillFormEditContact(Contact contact)
-    {
-    //waitForAnElement(createButton);
-    inputNameEditField.sendKeys(contact.getName());
-    driver.hideKeyboard();
-    inputLastNameEditField.sendKeys("Petrov");
-    driver.hideKeyboard();
-    inputEmailEditField.sendKeys(contact.getEmail());
-    driver.hideKeyboard();
-    inputPhoneEditField.sendKeys(contact.getPhone());
-    driver.hideKeyboard();
-    inputAddressEditField.sendKeys(contact.getAddress());
-    driver.hideKeyboard();
-    inputDescrEditField.sendKeys(contact.getDescription());
-    return this;
-    }
+//    public EditContactScreen fillFormEditContact(Contact contact)
+//    {
+//    //waitForAnElement(createButton);
+//    inputNameEditField.sendKeys(contact.getName());
+//    driver.hideKeyboard();
+//    inputLastNameEditField.sendKeys("Petrov");
+//    driver.hideKeyboard();
+//    inputEmailEditField.sendKeys(contact.getEmail());
+//    driver.hideKeyboard();
+//    inputPhoneEditField.sendKeys(contact.getPhone());
+//    driver.hideKeyboard();
+//    inputAddressEditField.sendKeys(contact.getAddress());
+//    driver.hideKeyboard();
+//    inputDescrEditField.sendKeys(contact.getDescription());
+//    return this;
+//    }
+//
+//
+//    public ContactListScreen updateSaveContact() {//возвращает КонтактЛист как результат работы метода
+//        updateButton.click();
+//        return new ContactListScreen(driver);
+//    }
 
+//    public int sum(int x, int y) {
+//        int res = x + y;
+//        return res;
+//    }
 
-    public ContactListScreen updateSaveContact() {
+    public ContactListScreen submitChanges() {
         updateButton.click();
         return new ContactListScreen(driver);
     }
-
-
-//android:id/alertTitle
+    public EditContactScreen editEmailField(String email) {
+        waitForAnElement(updateButton);
+        inputEmailEditField.clear();
+        inputEmailEditField.sendKeys(email);
+        return this;
+    }
 
 }

@@ -14,25 +14,65 @@ import screens.SplashScreen;
 
 public class EditContactTest extends AppiumConfig {
 
+//    @Test
+//    public void editContact() {
+//        ContactListScreen contactListScreen = new SplashScreen(driver)
+//                .switchToAuthScreen()
+//                .fillEmailField("poikhaf770@mail.rud")
+//                .fillPasswordField("Aa1234567$")
+//                .clickByLoginButton();
+//
+//        Contact contact = new Contact(NameAndLastNameGenerator.generateName(),
+//                NameAndLastNameGenerator.generateLastName(),
+//                EmailGenerator.generateEmail(5,5,3),
+//                PhoneNumberGenerator.generatePhoneNumber(),
+//                AddressGenerator.generateAddress(),
+//                "desc");
+//
+//        contactListScreen.openNewContactForm().fillForm(contact).createContact();
+//
+//        Assert.assertTrue(contactListScreen.editContact().fillFormEditContact(contact)
+//                .updateSaveContact().isContactUpdated());
+//
+//    }
+
     @Test
-    public void editContact() {
-        ContactListScreen contactListScreen = new SplashScreen(driver)
+    public void editContactMailPositive() {
+        String text = "updateMail@mail.com";
+        new SplashScreen(driver)
                 .switchToAuthScreen()
                 .fillEmailField("poikhaf770@mail.rud")
                 .fillPasswordField("Aa1234567$")
                 .clickByLoginButton();
 
-        Contact contact = new Contact(NameAndLastNameGenerator.generateName(),
-                NameAndLastNameGenerator.generateLastName(),
-                EmailGenerator.generateEmail(5,5,3),
-                PhoneNumberGenerator.generatePhoneNumber(),
-                AddressGenerator.generateAddress(),
-                "desc");
+        Assert.assertTrue(new ContactListScreen(driver).editOneContact()
+                .editEmailField(text)
+                .submitChanges()
+                .isContactContainsText(text));
+    }
 
-        contactListScreen.openNewContactForm().fillForm(contact).createContact();
 
-        Assert.assertTrue(contactListScreen.editContact().fillFormEditContact(contact)
-                .updateSaveContact().isContactUpdated());
+    @Test
+    public void editAnyContactYouWant() {
+     //   String text = EmailGenerator.generateEmail(5,5,3);
+        new SplashScreen(driver).switchToAuthScreen()
+                .fillEmailField("poikhaf770@mail.rud")
+                .fillPasswordField("Aa1234567$")
+                .clickByLoginButton();
 
+
+    Contact contact = new Contact(
+            NameAndLastNameGenerator.generateName(),
+            NameAndLastNameGenerator.generateLastName(),
+            EmailGenerator.generateEmail(3,3,3),
+            PhoneNumberGenerator.generatePhoneNumber(),
+            AddressGenerator.generateAddress(),
+            "Description"
+    );
+  Assert.assertTrue(new ContactListScreen(driver)
+          .openNewContactForm()
+          .fillForm(contact)
+          .createContact()
+          .isContactAddedScroll(contact));
     }
 }

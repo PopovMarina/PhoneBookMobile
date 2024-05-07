@@ -20,4 +20,17 @@ public class LoginDataProviderTest extends AppiumConfig {
       Assert.assertTrue(authenticationScreen.isItAuthenticationScreen());
 
     }
+
+    @Test(dataProvider = "loginDataNegative", dataProviderClass = TestData.class)
+    public void loginTestNegativeHW(String email, String password) {
+        AuthenticationScreen authenticationScreen = new SplashScreen(driver)
+                .switchToAuthScreen()
+                .fillEmailField(email)
+                .fillPasswordField(password)
+                .clickByLoginButton();
+
+        Assert.assertTrue(authenticationScreen.isItAuthenticationScreen());
+
+    }
 }
+//заменить хардкорд генераторами + применить Аллюр

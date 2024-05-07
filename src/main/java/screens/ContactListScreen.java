@@ -9,6 +9,7 @@ import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Random;
 
 public class ContactListScreen extends BaseScreen{
 
@@ -97,42 +98,106 @@ phoneNumber = rowPhone.get(0).getText();
     return this;
 }
 
-public EditContactScreen editContact() {
-    waitForAnElement(addButton);
-    MobileElement contact = contacts.get(0);
-    phoneNumber = rowPhone.get(0).getText();
+    public ContactListScreen removeAllContacts() {
+        waitForAnElement(addButton);
+        while (contacts.size()>0) {
+            removeAContact();
+        }
+        return this;
+    }
+    public boolean isNoContactsMessage() {
 
-    Rectangle rectangle = contact.getRect();
-    int xStart = rectangle.getX() + rectangle.getWidth()*7/8;
-    int y = rectangle.getY() + rectangle.getHeight()/2;
-    int xEnd = xStart - rectangle.getWidth()*6/8;
+    return isElementPresent(emptyListMessage, "No Contacts");
+    }
 
-    new TouchAction<>(driver).longPress(PointOption.point(xStart,y))
-            .moveTo(PointOption.point(xEnd,y))
-            .release()
-            .perform();
+    public boolean isContactRemoved() {
 
-    return new EditContactScreen(driver);
-
-}
-    public boolean isContactUpdated() {
         return !rowPhone.contains(phoneNumber);
     }
 
 
-    public boolean isContactRemoved() {
+    //public EditContactScreen editContact() {
+//    waitForAnElement(addButton);
+//    MobileElement contact = contacts.get(0);
+//    phoneNumber = rowPhone.get(0).getText();
+//
+//    Rectangle rectangle = contact.getRect();
+//    int xStart = rectangle.getX() + rectangle.getWidth()*7/8;
+//    int y = rectangle.getY() + rectangle.getHeight()/2;
+//    int xEnd = xStart - rectangle.getWidth()*6/8;
+//
+//    new TouchAction<>(driver).longPress(PointOption.point(xStart,y))
+//            .moveTo(PointOption.point(xEnd,y))
+//            .release()
+//            .perform();
+//
+//    return new EditContactScreen(driver);
+//
+//}
+    public boolean isContactUpdated() {
+
     return !rowPhone.contains(phoneNumber);
     }
 
-    public ContactListScreen removeAllContacts() {
+    public EditContactScreen editOneContact() {
     waitForAnElement(addButton);
-    while (contacts.size()>0) {
-        removeAContact();
-    }
-    return this;
+    MobileElement contact = contacts.get(0);
+
+        Rectangle rectangle = contact.getRect();
+        int xStart = rectangle.getX() + rectangle.getWidth()*7/8;
+        int y = rectangle.getY() + rectangle.getHeight()/2;
+        int xEnd = xStart - rectangle.getWidth()*6/8;
+
+        new TouchAction<>(driver).longPress(PointOption.point(xStart,y))
+                .moveTo(PointOption.point(xEnd,y))
+                .release()
+                .perform();
+
+        return new EditContactScreen(driver);
+
     }
 
-    public boolean isNoContactsMessage() {
-    return isElementPresent(emptyListMessage, "No Contacts");
+    public boolean isContactContainsText(String text){
+        contacts.get(0).click();
+       Contact contact = new ViewContactScreen(driver).viewContactObject();
+        driver.navigate().back();
+        return contact.toString().contains(text);
+    }
+    //**************
+public ContactListScreen scrolling() {
+    waitForAnElement(addButton);
+    MobileElement contact = contacts.get(contacts.size()-1);
+    Rectangle rectangle = contact.getRect();
+    int x = rectangle.getX() + rectangle.getWidth()/2;
+    int y = rectangle.getY() + rectangle.getHeight()/2;
+
+    new TouchAction<>(driver)
+            .longPress(PointOption.point(x,y))
+            .moveTo(PointOption.point(x,0))
+            .release()
+            .perform();
+    return this;
+}
+
+public boolean isTheEndOfTheList() {
+    String beforeScroll = getLastContact();
+    scrolling();
+    String afterScroll = getLastContact();
+    return beforeScroll.equals(afterScroll);
+}
+
+private String getLastContact() {
+    return rowName.get(rowName.size()-1).getText() + " " + rowPhone.get(rowPhone.size()-1).getText();
+}
+
+public boolean isContactAddedScroll(Contact contact) {
+    boolean result = false;
+    while(!result && !isTheEndOfTheList()){
+        boolean checkName = checkContainsText(rowName, contact.getName());
+        boolean checkPhone = checkContainsText(rowPhone, contact.getPhone());
+        result = checkName && checkPhone;
+        if(!result){ scrolling(); }
+    }
+    return result;
     }
 }
