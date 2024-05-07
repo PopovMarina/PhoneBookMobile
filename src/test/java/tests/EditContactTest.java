@@ -7,12 +7,24 @@ import helpers.NameAndLastNameGenerator;
 import helpers.PhoneNumberGenerator;
 import models.Contact;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import screens.ContactListScreen;
 import screens.EditContactScreen;
 import screens.SplashScreen;
 
 public class EditContactTest extends AppiumConfig {
+
+/*    чтобы не писать каждый раз данные юзера и пароль для входа -
+      можно создать БефорТест и вызывать его перед всеми тестами:
+@BeforeTest
+    public void precondition(){
+        new SplashScreen(driver)
+                .switchToAuthScreen()
+                .fillEmailField("mymegamail@mail.com")
+                .fillPasswordField("MyPassword123!")
+                .clickByLoginButton();
+*/
 
 //    @Test
 //    public void editContact() {
